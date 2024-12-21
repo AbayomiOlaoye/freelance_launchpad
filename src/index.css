@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&family=Nunito:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@layer base {
+  html {
+    font-family: "Nunito", system-ui, sans-serif;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5, 
+h6 {
+  font-family: 'Raleway', sans-serif;
+}
+
+h1,
+h2 {
+  font-family: 'Baloo Bhai 2', cursive;
+  font-weight: 700;
+}
+
+.bg {
+  background-image: url('./assets/bg_mob.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  /* line-height: 1.6; */
+}
