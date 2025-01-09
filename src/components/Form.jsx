@@ -8,7 +8,7 @@ import { MdCancel } from 'react-icons/md';
 import { motion, AnimatePresence } from 'framer-motion';
 import { toggle, formStatus } from '../redux/popSlice';
 
-const passkey = import.meta.env.PASSKEY;
+const passkey = import.meta.env.VITE_FORMSPREE_PASSKEY;
 const errorVariants = {
   hidden: { opacity: 0, y: -10 },
   visible: { opacity: 1, y: 0 },
