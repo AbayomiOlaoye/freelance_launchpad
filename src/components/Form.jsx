@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
@@ -43,8 +44,8 @@ const Form = () => {
           },
           body: JSON.stringify(values),
         });
-        return;
       }
+
       try {
         setLoading(true);
         setTimeout(() => (handleSubmit(values), 5000));
