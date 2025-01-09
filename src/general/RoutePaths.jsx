@@ -1,3 +1,4 @@
 export const RoutePaths = {
-  HOME: '/join',
+  HOME: '/',
+  WEBINAR: '/join',
 };

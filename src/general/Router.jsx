@@ -15,6 +15,14 @@ export const Router = () => (
       }
     />
     <Route
+      path={RoutePaths.WEBINAR}
+      element={
+        <Layout>
+          <Home />
+        </Layout>
+      }
+    />
+    <Route
       path="*"
       element={
         <Layout>
