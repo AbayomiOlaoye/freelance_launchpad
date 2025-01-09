@@ -10,6 +10,7 @@ import Form from '../components/Form';
 const Nav = () => {
   const dispatch = useDispatch()
   const { success } = useSelector((state) => state.pop);
+  const [date] = useState(new Date('2025-01-17T23:59:59'));
   const[isOpen, setIsOpen] = useState(false);
 
   const Renderer = ({ days, hours, minutes, seconds, completed }) => {
@@ -31,7 +32,6 @@ const Nav = () => {
     }
   };
 
-  const [date] = useState(new Date('2025-01-17T23:59:59'));
   return (
     <header>
       <nav className='flex justify-between items-center p-2 md:p-0 bg-transparent md:my-10 text-primary'>

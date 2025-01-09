@@ -11,7 +11,7 @@ export default defineConfig({
         format: 'es',
       }
     },
-    sourcemap: 'inline',
+    sourcemap: false,
     commonjsOptions: {
       transformMixedEsModules: true,
     },

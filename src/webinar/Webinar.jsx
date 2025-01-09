@@ -140,12 +140,12 @@ const Webinar = () => {
           className="w-full my-10 md:hidden"
         />
         <motion.img
-          initial={{ opacity: 0, y: "50%", width: "50%" }}
-          animate={{ opacity: 1, y: 0, width: "100%" }}
+          initial={{ opacity: 0, y: "50%"}}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           src={deskHero}
           alt="A thriving freelancer"
-          className="w-full my-10 hidden md:flex"
+          className="lg:w-full my-10 hidden md:flex md:w-[80%]"
         />
       </section>
       <motion.section style={{ overflow: 'hidden' }} className="flex w-full flex-col lg:mt-[60px] items-center lg:items-start justify-center gap-5 md:grid lg:grid-cols-2">
