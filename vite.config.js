@@ -12,6 +12,12 @@ export default defineConfig({
       }
     },
     sourcemap: 'inline',
+    commonjsOptions: {
+      transformMixedEsModules: true,
+    },
+  },
+  optimizeDeps: {
+    include: ['react-redux'],
   },
   resolve: {
     alias: {
