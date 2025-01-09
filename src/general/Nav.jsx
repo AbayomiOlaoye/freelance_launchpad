@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Props from 'prop-types';
 import logo from '../assets/freelanceLP.svg';
 import Countdown, { zeroPad } from 'react-countdown-now';
 import { toggle } from '../redux/popSlice';
@@ -58,5 +59,13 @@ const Nav = () => {
     </header>
   );
 }
+
+Nav.propTypes = {
+  days: Props.number.isRequired,
+  hours: Props.number.isRequired,
+  minutes: Props.number.isRequired,
+  seconds: Props.number.isRequired,
+  completed: Props.bool.isRequired,
+};
 
 export default Nav;

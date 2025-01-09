@@ -1,6 +1,7 @@
 import {Suspense} from 'react';
 import {BrowserRouter} from 'react-router-dom';
 import {Router} from './general/Router.jsx';
+import Props from 'prop-types';
 import {Loading} from './components/Loading.jsx';
 
 export const PageWithHeader = ({children}) => (
@@ -22,3 +23,7 @@ export const App = () => (
     </Suspense>
   </BrowserRouter>
 );
+
+PageWithHeader.propTypes = {
+  children: Props.node.isRequired,
+};

@@ -1,5 +1,6 @@
-export const Thumb = (props) => {
-  const { selected, index, onClick } = props;
+import Props from 'prop-types';
+
+export const Thumb = ({ selected, index, onClick }) => {
 
   return (
     <div
@@ -17,3 +18,9 @@ export const Thumb = (props) => {
     </div>
   )
 }
+
+Thumb.propTypes = {
+  selected: Props.bool.isRequired,
+  index: Props.number.isRequired,
+  onClick: Props.func.isRequired,
+};

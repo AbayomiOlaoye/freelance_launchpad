@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import Props from "prop-types";
 import { RoutePaths } from "../general/RoutePaths.jsx";
 
 export const ErrorFallback = ({ error, resetErrorBoundary }) => {
@@ -29,4 +30,9 @@ export const ErrorFallback = ({ error, resetErrorBoundary }) => {
       </div>
     </div>
   );
+};
+
+ErrorFallback.propTypes = {
+  error: Props.object.isRequired,
+  resetErrorBoundary: Props.func.isRequired,
 };
