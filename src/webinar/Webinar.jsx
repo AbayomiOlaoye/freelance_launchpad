@@ -1,7 +1,6 @@
 import { useCallback, useState, useEffect } from 'react'
 import useEmblaCarousel from 'embla-carousel-react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { Thumb } from './EmblaCarouselArrowButton'
 import { motion } from 'framer-motion';
 import heroMob from '../assets/hero_mob.svg';
 import deskHero from '../assets/hero_desk.svg';
@@ -113,11 +112,11 @@ const Webinar = () => {
             initial={{ opacity: 0, y: "-100%" }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="text-[7vw] md:text-[40px] lg:text-[54px] lg:mx-0 lg:leading-[60px] font-extrabold max-w-[80%] mx-auto text-center lg:text-left"
+            className="text-[7vw] md:text-[40px] lg:text-[54px] lg:mx-0 leading-9 lg:leading-[60px] font-extrabold md:max-w-[80%] mx-auto text-center lg:text-left"
           >
             From Job Seeker to Digital Nomad: Your 2025 Leap into Freelance Freedom
           </motion.h1>
-          <p className="text-lg lg:text-2xl lg:leading-10 max-w-[70%] text-center mx-auto lg:mx-0 lg:text-left">
+          <p className="text-lg lg:text-2xl lg:leading-10 md:max-w-[70%] text-center mx-auto lg:mx-0 lg:text-left">
             Join our exclusive webinar to discover the secrets to conquer your fears, master your skills,
             find clients, present yourself, and build a thriving freelance career.
           </p>
@@ -126,7 +125,7 @@ const Webinar = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5, stiffness: 150 }}
             onClick={() => {dispatch(toggle()); setOpen(true)}}
-            className="border-0 my-2 lg:text-2xl md:py-4 md:w-[90%] lg:mx-0 bg-orange-100 rounded-lg px-4 py-3 text-primary font-bold transition-all active:scale-95 hover:bg-primary mx-auto lg:place-self-start hover:text-orange-100"
+            className="border-0 my-2 lg:text-2xl md:py-4 md:w-[90%] lg:mx-0 bg-orange-100 rounded-lg px-4 py-2 text-primary font-bold transition-all active:scale-95 hover:bg-primary mx-auto lg:place-self-start hover:text-orange-100"
           >
             Register Now
           </motion.button>
@@ -173,15 +172,15 @@ const Webinar = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="embla flex flex-col items-center justify-center overflow-hidden gap-4 my-14 md:mt-10 lg:mt-0 border rounded-lg border-orange-100 w-full px-5 py-6"
+          className="embla flex flex-col items-center justify-center overflow-hidden gap-4 my-10 md:mt-10 lg:mt-0 border rounded-lg border-orange-100 w-full px-5 py-6"
         >
           <h2 className="text-2xl lg:text-3xl font-bold text-center">Perks for the First 100 attendees:</h2>
-          <article className="flex items-center justify-center my-4 px-5 py-3 viewport" ref={emblaMainRef}>
-            <motion.ul className="embla__container px-4 flex gap-4">
+          <article className="flex items-center justify-center my-2 px-5 py-3 viewport" ref={emblaMainRef}>
+            <motion.ul className="embla__container px-5 flex gap-3">
               {offers.map((offer, index) => (
-                <li key={index} className="flex flex-col bg-primary items-center gap-2 w-full p-6 lg:p-8 embla__slide">
+                <li key={index} className="flex flex-col bg-primary items-center gap-2 w-full p-7 lg:p-8 embla__slide">
                   <h3 className="text-lg font-bold text-orange-100 text-center">{offer.title}</h3>
-                  <p className="max-w-full text-white text-center md:text-[18px]">{offer.description}</p>
+                  <p className="max-w-full text-white text-center lg:text-[16px]">{offer.description}</p>
                 </li>
               ))}
             </motion.ul>
@@ -192,7 +191,7 @@ const Webinar = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.3 }}
-            className="flex justify-center gap-4 my-1 py-6"
+            className="flex justify-center gap-4 my-1"
             ref={emblaThumbsRef}
           >
             <motion.ul
@@ -204,10 +203,10 @@ const Webinar = () => {
                 <li
                   key={index}
                   onClick={() => onThumbClick(index)}
-                  className={`flex flex-col border-2 border-primary embla-thumbs__slide rounded cursor-pointer items-center gap-2 w-[10px] p-5 ${'embla-thumbs__slide'.concat(
+                  className={`flex flex-col border-2 border-primary embla-thumbs__slide rounded cursor-pointer items-center gap-2 w-[10px] p-4 ${'embla-thumbs__slide'.concat(
                   index === selectedIndex ? 'embla-thumbs__slide--selected bg-primary scale-110' : ''
                 )}`}>
-                  <h3 className={`text-sm font-semibold text-primary text-[1.5vh] text-center ${index === selectedIndex && 'text-white'}`}>{index + 1}</h3>
+                  <h3 className={`text-sm font-semibold text-primary text-center ${index === selectedIndex && 'text-white'}`}>{index + 1}</h3>
                 </li>
               ))}
             </motion.ul>
@@ -217,16 +216,16 @@ const Webinar = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            onClick={() => {dispatch(toggle())}} className="border-0 my-2 bg-orange-100 rounded-lg px-4 py-3 text-primary font-bold transition-all active:scale-95 hover:bg-primary hover:text-orange-100"
+            onClick={() => {dispatch(toggle())}} className="border-0 my-2 bg-orange-100 rounded-lg px-4 py-2 text-primary font-bold transition-all active:scale-95 hover:bg-primary hover:text-orange-100"
           >
             Reserve my spot
           </motion.button>
         </motion.article>
       </motion.section>
       <small className='flex items-center text-center justify-center gap-1 text-orange-100'>
-        &copy;
-        <span className='text-primary text-lg'>
-          {`${currentYear} All Rights Reserved, Freelance LaunchPad`}
+        <span className='text-primary'>
+          <span className='text-orange-100'>&copy;</span>
+          {` ${currentYear} All Rights Reserved, Freelance LaunchPad`}
         </span>
       </small>
       {open && (<Form />)}
