@@ -1,9 +1,9 @@
 import { defineConfig } from 'vite';
-import nodePolyfills from 'rollup-plugin-node-polyfills';
+// import nodePolyfills from 'rollup-plugin-node-polyfills';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  plugins: [react(), nodePolyfills()],
+  plugins: [react()],
   build: {
     target: 'esnext',
     rollupOptions: {
