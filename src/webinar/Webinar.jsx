@@ -102,31 +102,60 @@ const Webinar = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0, x: "-100%" }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <section className="flex flex-col items-center justify-center lg:flex-row md:mt-[60px] gap-5">
         <article className="flex flex-col items-center md:items-start justify-center gap-4">
-          <h1 className="text-[7vw] md:text-[40px] lg:text-[54px] lg:leading-[60px] font-extrabold max-w-[90%] text-center md:text-left">From Job Seeker to Digital Nomad: Your 2025 Leap into Freelance Freedom</h1>
+          <motion.h1
+            initial={{ opacity: 0, y: "-100%" }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className="text-[7vw] md:text-[40px] lg:text-[54px] lg:leading-[60px] font-extrabold max-w-[90%] text-center md:text-left"
+          >
+            From Job Seeker to Digital Nomad: Your 2025 Leap into Freelance Freedom
+          </motion.h1>
           <p className="text-lg lg:text-2xl lg:leading-10 max-w-[90%] text-center md:text-left">
             Join our exclusive webinar to discover the secrets to conquer your fears, master your skills,
             find clients, present yourself, and build a thriving freelance career.
           </p>
-          <button onClick={() => {dispatch(toggle()); setOpen(true)}} className="border-0 my-2 lg:text-2xl md:py-4 md:w-[90%] bg-orange-100 rounded-lg px-4 py-3 text-primary font-bold transition-all active:scale-95 hover:bg-primary md:place-self-start hover:text-orange-100">
+          <motion.button
+            initial={{ opacity: 0, y: "50%" }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5, stiffness: 150 }}
+            onClick={() => {dispatch(toggle()); setOpen(true)}}
+            className="border-0 my-2 lg:text-2xl md:py-4 md:w-[90%] bg-orange-100 rounded-lg px-4 py-3 text-primary font-bold transition-all active:scale-95 hover:bg-primary md:place-self-start hover:text-orange-100"
+          >
             Register Now
-          </button>
+          </motion.button>
         </article>
-        <img
+        <motion.img
+          initial={{ opacity: 0, y: "50%" }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
           src={heroMob}
           alt="A thriving freelancer"
           className="w-full my-10 md:hidden"
         />
-        <img
+        <motion.img
+          initial={{ opacity: 0, y: "50%" }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
           src={deskHero}
           alt="A thriving freelancer"
           className="w-full my-10 hidden md:flex"
         />
       </section>
-      <section className="flex w-full flex-col lg:mt-[60px] items-center lg:items-start justify-center gap-5 md:grid lg:grid-cols-2">
-        <article className="flex flex-col items-center lg:items-start gap-4 md:grid">
+      <motion.section style={{ overflow: 'hidden' }} className="flex w-full flex-col lg:mt-[60px] items-center lg:items-start justify-center gap-5 md:grid lg:grid-cols-2">
+        <motion.article
+          initial={{ opacity: 0, x: "-100%" }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="flex flex-col items-center lg:items-start gap-4 md:grid"
+        >
           <h2 className="text-2xl lg:text-3xl font-extrabol self-start">What you&apos;ll learn:</h2>
           <ul className="flex flex-col items-start gap-2">
             {benefits.map((benefit, index) => (
@@ -138,8 +167,14 @@ const Webinar = () => {
               </li>
             ))}
           </ul>
-        </article>
-        <article className="embla flex flex-col items-center justify-center overflow-hidden gap-4 my-14 md:mt-10 lg:mt-0 border rounded-lg border-orange-100 w-full px-5 py-6">
+        </motion.article>
+        <motion.article
+          initial={{ opacity: 0, x: "100%" }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="embla flex flex-col items-center justify-center overflow-hidden gap-4 my-14 md:mt-10 lg:mt-0 border rounded-lg border-orange-100 w-full px-5 py-6"
+        >
           <h2 className="text-2xl lg:text-3xl font-bold text-center">Perks for the First 100 attendees:</h2>
           <article className="flex items-center justify-center my-4 px-5 py-3 viewport" ref={emblaMainRef}>
             <motion.ul className="embla__container px-4 flex gap-4">
@@ -152,8 +187,19 @@ const Webinar = () => {
             </motion.ul>
           </article>
 
-          <article className="flex justify-center gap-4 my-1 py-6" ref={emblaThumbsRef}>
-            <motion.ul className="flex gap-1">
+          <motion.article
+            initial={{ opacity: 0, y: "50%" }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.3 }}
+            className="flex justify-center gap-4 my-1 py-6"
+            ref={emblaThumbsRef}
+          >
+            <motion.ul
+              initial={{ opacity: 0, width: "10%" }}
+              animate={{ opacity: 1, width: "100%" }}
+              className="flex gap-1"
+            >
               {offers.map((_, index) => (
                 <li
                   key={index}
@@ -165,12 +211,18 @@ const Webinar = () => {
                 </li>
               ))}
             </motion.ul>
-          </article>
-          <button onClick={() => {dispatch(toggle())}} className="border-0 my-2 bg-orange-100 rounded-lg px-4 py-3 text-primary font-bold transition-all active:scale-95 hover:bg-primary hover:text-orange-100">
+          </motion.article>
+          <motion.button
+            initial={{ opacity: 0, y: "50%" }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            onClick={() => {dispatch(toggle())}} className="border-0 my-2 bg-orange-100 rounded-lg px-4 py-3 text-primary font-bold transition-all active:scale-95 hover:bg-primary hover:text-orange-100"
+          >
             Reserve my spot
-          </button>
-        </article>
-      </section>
+          </motion.button>
+        </motion.article>
+      </motion.section>
       <small className='flex items-center text-center justify-center gap-1 text-orange-100'>
         &copy;
         <span className='text-primary text-lg'>
@@ -179,7 +231,7 @@ const Webinar = () => {
       </small>
       {open && (<Form />)}
       {success && (<Success />)}
-    </div>
+    </motion.div>
   );
 }
 
