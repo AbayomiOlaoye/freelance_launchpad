@@ -8,7 +8,7 @@ import { MdCancel } from 'react-icons/md';
 import { motion, AnimatePresence } from 'framer-motion';
 import { toggle, formStatus } from '../redux/popSlice';
 
-const passkey = import.meta.env.VITE_FORMSPREE_PASSKEY;
+const passkey = import.meta.env.PASSKEY;
 const errorVariants = {
   hidden: { opacity: 0, y: -10 },
   visible: { opacity: 1, y: 0 },
@@ -56,7 +56,7 @@ const Form = () => {
         email: '',
       },
     });
-  }, []);
+  }, [formik]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -64,7 +64,7 @@ const Form = () => {
     }, 3000);
 
     return () => clearTimeout(timer);
-  }, [formik.errors]);
+  }, [formik, formik.errors]);
 
   if (loading) {
     return (
