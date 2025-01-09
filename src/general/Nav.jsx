@@ -1,8 +1,16 @@
-import {  useState } from 'react';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import logo from '../assets/freelanceLP.svg';
 import Countdown, { zeroPad } from 'react-countdown-now';
+import { toggle } from '../redux/popSlice';
+import Success from '../components/Success';
+import Form from '../components/Form';
 
 const Nav = () => {
+  const dispatch = useDispatch()
+  const { success } = useSelector((state) => state.pop);
+  const[isOpen, setIsOpen] = useState(false);
+
   const Renderer = ({ days, hours, minutes, seconds, completed }) => {
     const Completionist = () => <span>You are good to go!</span>;
     if (completed) {
@@ -22,10 +30,10 @@ const Nav = () => {
     }
   };
 
-  const [date] = useState(new Date('2024-12-29T23:59:59'));
+  const [date] = useState(new Date('2025-01-17T23:59:59'));
   return (
     <header>
-      <nav className='flex justify-between items-center p-2 bg-transparent text-primary'>
+      <nav className='flex justify-between items-center p-2 md:p-0 bg-transparent md:my-10 text-primary'>
         <img
           src={logo}
           alt="Freelance Launchpad logo"
@@ -37,7 +45,7 @@ const Nav = () => {
           <Countdown date={date} renderer={Renderer} />
         </article>
 
-        <button type="button" className="border-2 border-primary rounded-lg px-4 py-2 text-primary transition-all active:scale-95 hover:bg-primary hover:text-orange-100">
+        <button onClick={() => {dispatch(toggle()); setIsOpen(true)}} type="button" className="border-2 border-primary rounded-lg px-4 py-2 text-primary transition-all active:scale-95 hover:bg-primary hover:text-orange-100">
           Register Now
         </button>
       </nav>
@@ -45,6 +53,8 @@ const Nav = () => {
         <p className=''>Registration ends in:</p>
         <Countdown date={date} renderer={Renderer} />
       </article>
+      {isOpen && (<Form />)}
+      {success && (<Success />)}
     </header>
   );
 }

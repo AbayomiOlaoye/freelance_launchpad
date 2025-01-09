@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&family=Nunito:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
+:root {
+  --primary: #373643;
+  --secondary: #FF914D;
+  --tertiary: #F97216;
+  --text-body: rgb(54, 49, 61);
+  --detail-high-contrast: rgb(192, 192, 192);
+  --detail-medium-contrast: rgb(234, 234, 234);
+  --text-high-contrast-rgb-value: 230, 230, 230;
+}
 
 html {
   scroll-behavior: smooth;
@@ -39,11 +48,96 @@ h2 {
 .bg {
   background-image: url('./assets/bg_mob.png');
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeatt;
 }
 
 body {
   font-family: 'Nunito', sans-serif;
-  font-size: 1rem;
+  font-size: 1.18rem;
+  color: var(--primary);
   /* line-height: 1.6; */
+}
+
+.embla {
+  --slide-height: 19rem;
+  --slide-spacing: 0.75rem;
+  --slide-size: 80%;
+}
+
+@media screen and (min-width: 800px) {
+  .embla {
+    --slide-size: 100%;
+  }
+
+  .embla__container {
+    width: 350px;
+  }
+}
+
+.viewport {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+  /* margin-left: calc(var(--slide-spacing) * -1); */
+  max-width: 410px;
+}
+
+.embla__slide {
+  transform: translate3d(0, 0, 0);
+  flex: 0 0 var(--slide-size);
+  min-width: 0;
+  padding-left: var(--slide-spacing);
+  box-shadow: 0 8px 12px -2px rgba(0, 0, 0, 0.15);
+  border-radius: 1rem;
+}
+
+.embla-thumbs {
+  --thumbs-slide-spacing: 0.8rem;
+  --thumbs-slide-height: 6rem;
+  /* margin-top: var(--thumbs-slide-spacing); */
+}
+
+.embla-thumbs__container {
+  display: flex;
+  flex-direction: row;
+}
+
+.embla-thumbs__slide {
+  min-width: 0;
+}
+
+@media (min-width: 576px) {
+  .embla-thumbs__slide {
+    flex: 0 0 15%;
+  }
+}
+
+.embla-thumbs__slide__number {
+  border-radius: 1.8rem;
+  -webkit-tap-highlight-color: rgba(var(--text-high-contrast-rgb-value), 0.5);
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  touch-action: manipulation;
+  display: inline-flex;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--detail-high-contrast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--thumbs-slide-height);
+  width: 100%;
+}
+.embla-thumbs__slide--selected .embla-thumbs__slide__number {
+  color: var(--text-body);
 }
