@@ -113,11 +113,11 @@ const Webinar = () => {
             initial={{ opacity: 0, y: "-100%" }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="text-[7vw] md:text-[40px] lg:text-[54px] lg:leading-[60px] font-extrabold max-w-[90%] text-center md:text-left"
+            className="text-[7vw] md:text-[40px] lg:text-[54px] lg:mx-0 lg:leading-[60px] font-extrabold max-w-[80%] mx-auto text-center lg:text-left"
           >
             From Job Seeker to Digital Nomad: Your 2025 Leap into Freelance Freedom
           </motion.h1>
-          <p className="text-lg lg:text-2xl lg:leading-10 max-w-[90%] text-center md:text-left">
+          <p className="text-lg lg:text-2xl lg:leading-10 max-w-[70%] text-center mx-auto lg:mx-0 lg:text-left">
             Join our exclusive webinar to discover the secrets to conquer your fears, master your skills,
             find clients, present yourself, and build a thriving freelance career.
           </p>
@@ -126,7 +126,7 @@ const Webinar = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5, stiffness: 150 }}
             onClick={() => {dispatch(toggle()); setOpen(true)}}
-            className="border-0 my-2 lg:text-2xl md:py-4 md:w-[90%] bg-orange-100 rounded-lg px-4 py-3 text-primary font-bold transition-all active:scale-95 hover:bg-primary md:place-self-start hover:text-orange-100"
+            className="border-0 my-2 lg:text-2xl md:py-4 md:w-[90%] lg:mx-0 bg-orange-100 rounded-lg px-4 py-3 text-primary font-bold transition-all active:scale-95 hover:bg-primary mx-auto lg:place-self-start hover:text-orange-100"
           >
             Register Now
           </motion.button>
@@ -140,8 +140,8 @@ const Webinar = () => {
           className="w-full my-10 md:hidden"
         />
         <motion.img
-          initial={{ opacity: 0, y: "50%" }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: "50%", width: "100%" }}
+          animate={{ opacity: 1, y: 0, width: "80%" }}
           transition={{ duration: 0.5 }}
           src={deskHero}
           alt="A thriving freelancer"
