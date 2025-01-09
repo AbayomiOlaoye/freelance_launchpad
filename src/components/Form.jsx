@@ -9,6 +9,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { toggle, formStatus } from '../redux/popSlice';
 
 const passkey = import.meta.env.VITE_FORMSPREE_PASSKEY;
+const backend = import.meta.env.VITE_BACKEND_URL;
+
 const errorVariants = {
   hidden: { opacity: 0, y: -10 },
   visible: { opacity: 1, y: 0 },
@@ -32,7 +34,17 @@ const Form = () => {
       email: '',
     },
     validationSchema,
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
+      if (values) {
+        await fetch(backend, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(values),
+        });
+        return;
+      }
       try {
         setLoading(true);
         setTimeout(() => (handleSubmit(values), 5000));
@@ -56,7 +68,7 @@ const Form = () => {
         email: '',
       },
     });
-  }, [formik]);
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -64,7 +76,7 @@ const Form = () => {
     }, 3000);
 
     return () => clearTimeout(timer);
-  }, [formik, formik.errors]);
+  }, [formik.errors]);
 
   if (loading) {
     return (

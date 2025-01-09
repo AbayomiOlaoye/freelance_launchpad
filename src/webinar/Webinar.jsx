@@ -140,8 +140,8 @@ const Webinar = () => {
           className="w-full my-10 md:hidden"
         />
         <motion.img
-          initial={{ opacity: 0, y: "50%", width: "100%" }}
-          animate={{ opacity: 1, y: 0, width: "80%" }}
+          initial={{ opacity: 0, y: "50%", width: "50%" }}
+          animate={{ opacity: 1, y: 0, width: "100%" }}
           transition={{ duration: 0.5 }}
           src={deskHero}
           alt="A thriving freelancer"
