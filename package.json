@@ -9,7 +9,6 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
-  "pre-commit": "check",
   "dependencies": {
     "@formspree/react": "^2.5.1",
     "@reduxjs/toolkit": "^1.9.5",
