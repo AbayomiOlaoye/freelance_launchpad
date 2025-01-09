@@ -8,9 +8,10 @@ export default defineConfig({
     target: 'esnext',
     rollupOptions: {
       output: {
-        format: 'es', // Ensure ES modules are used
+        format: 'es',
       }
-    }
+    },
+    sourcemap: 'inline',
   },
   resolve: {
     alias: {
