@@ -125,7 +125,7 @@ const Webinar = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5, stiffness: 150 }}
             onClick={() => {dispatch(toggle()); setOpen(true)}}
-            className="border-0 my-2 lg:text-2xl md:py-4 md:w-[90%] lg:mx-0 bg-orange-100 rounded-lg px-4 py-3 text-primary font-bold transition-all active:scale-95 hover:bg-primary mx-auto lg:place-self-start hover:text-orange-100"
+            className="border-0 my-2 lg:text-2xl md:py-4 md:w-[90%] max-w-[200px] lg:mx-0 bg-orange-100 rounded-lg px-4 py-3 text-primary font-bold transition-all active:scale-95 hover:bg-primary mx-auto lg:place-self-start hover:text-orange-100"
           >
             Register Now
           </motion.button>
@@ -174,7 +174,7 @@ const Webinar = () => {
           viewport={{ once: true }}
           className="embla flex flex-col items-center justify-center overflow-hidden gap-4 my-10 md:mt-10 lg:mt-0 border rounded-lg border-orange-100 w-full px-5 py-6"
         >
-          <h2 className="text-2xl lg:text-3xl font-bold text-center">Perks for the First 100 attendees:</h2>
+          <h2 className="text-2xl lg:text-3xl font-bold text-center"> Early Bird Perks for the First 50 to Register:</h2>
           <article className="flex items-center justify-center my-2 px-5 py-3 viewport" ref={emblaMainRef}>
             <motion.ul className="embla__container px-5 flex gap-3">
               {offers.map((offer, index) => (

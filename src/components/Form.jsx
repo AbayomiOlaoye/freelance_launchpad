@@ -117,7 +117,7 @@ const Form = () => {
         <MdCancel className="absolute left-5 md:left-10 top-20 lg:top-14 text-3xl cursor-pointer text-white" onClick={() => dispatch(toggle())} />
         <form className="flex flex-col justify-center gap-2 bg-primary rounded-3xl p-6" onSubmit={formik.handleSubmit}>
           <h1 className="font-[700] text-white text-[24px] text-center">Secure Your Spot Now!!!</h1>
-          <h4 className="font-[500] text-center text-orange-100">Limited Seats Available for the First 300</h4>
+          <h4 className="font-[500] text-center text-orange-100">Limited Seats Available</h4>
           <article className="flex flex-col gap-7 mt-3">
             <div className="inputDiv w-full md:w-3/4 lg:w-1/2 mx-auto relative">
               <input
