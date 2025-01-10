@@ -112,7 +112,7 @@ const Webinar = () => {
             initial={{ opacity: 0, y: "-100%" }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="text-[7vw] md:text-[40px] lg:text-[54px] lg:mx-0 leading-9 lg:leading-[60px] font-extrabold md:max-w-[80%] mx-auto text-center lg:text-left"
+            className="text-[7vw] md:text-[40px] lg:text-[54px] lg:mx-0 lg:leading-[60px] font-extrabold md:max-w-[80%] mx-auto text-center lg:text-left"
           >
             From Job Seeker to Digital Nomad: Your 2025 Leap into Freelance Freedom
           </motion.h1>
@@ -125,7 +125,7 @@ const Webinar = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5, stiffness: 150 }}
             onClick={() => {dispatch(toggle()); setOpen(true)}}
-            className="border-0 my-2 lg:text-2xl md:py-4 md:w-[90%] lg:mx-0 bg-orange-100 rounded-lg px-4 py-2 text-primary font-bold transition-all active:scale-95 hover:bg-primary mx-auto lg:place-self-start hover:text-orange-100"
+            className="border-0 my-2 lg:text-2xl md:py-4 md:w-[90%] lg:mx-0 bg-orange-100 rounded-lg px-4 py-3 text-primary font-bold transition-all active:scale-95 hover:bg-primary mx-auto lg:place-self-start hover:text-orange-100"
           >
             Register Now
           </motion.button>
@@ -216,7 +216,7 @@ const Webinar = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            onClick={() => {dispatch(toggle())}} className="border-0 my-2 bg-orange-100 rounded-lg px-4 py-2 text-primary font-bold transition-all active:scale-95 hover:bg-primary hover:text-orange-100"
+            onClick={() => {dispatch(toggle())}} className="border-0 my-2 bg-orange-100 rounded-lg px-4 py-3 text-primary font-bold transition-all active:scale-95 hover:bg-primary hover:text-orange-100"
           >
             Reserve my spot
           </motion.button>

@@ -1,13 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
-import { useDispatch, useSelector } from 'react-redux';
-import { InfinitySpin } from 'react-loader-spinner';
+import { useDispatch } from 'react-redux';
+import { FallingLines } from 'react-loader-spinner';
+import { toast } from 'react-toastify';
 import { useForm } from '@formspree/react';
 import * as Yup from 'yup';
 import { MdCancel } from 'react-icons/md';	
 import { motion, AnimatePresence } from 'framer-motion';
 import { toggle, formStatus } from '../redux/popSlice';
+import { store } from '../redux/store';
 
 const passkey = import.meta.env.VITE_FORMSPREE_PASSKEY;
 const backend = import.meta.env.VITE_BACKEND_URL;
@@ -25,9 +27,9 @@ const Form = () => {
   });
 
   const dispatch = useDispatch();
-  const isOpen = useSelector((state) => state.pop.isOpen);
+  const isOpen =  store.getState().pop.isOpen;
   const [loading, setLoading] = useState(false);
-  const [state, handleSubmit] = useForm(passkey);
+  const [state, submit] = useForm(passkey);
 
   const formik = useFormik({
     initialValues: {
@@ -36,25 +38,30 @@ const Form = () => {
     },
     validationSchema,
     onSubmit: async (values) => {
-      if (values) {
-        await fetch(backend, {
+      setLoading(true);
+      try {
+        const backendResponse = await fetch(backend, {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(values),
         });
-      }
+        const data = await backendResponse.json();
+    
+        if (data?.error) {
+          toast.error(data?.error);
+          setLoading(false);
+          return;
+        }
+    
+        await submit(values);
 
-      try {
-        setLoading(true);
-        setTimeout(() => (handleSubmit(values), 5000));
-        setLoading(false);
         dispatch(formStatus());
         formik.resetForm();
         dispatch(toggle());
+        setLoading(false);
       } catch (err) {
-        console.log('Form submission error:', err);
+        console.error(err);
+        toast.error(err.message);
         setLoading(false);
       }
     },
@@ -84,11 +91,15 @@ const Form = () => {
       <motion.section
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        id="form"
-        onClick={() => console.log('remove')}
-        className="min-h-screen flex w-full z-[100] items-center justify-center fixed top-0 left-0 bg-opacity-85"
+        onClick={() => dispatch(toggle())}
+        className="min-h-screen bg-slate-200 flex w-full z-[100] items-center justify-center fixed top-0 left-0 bg-opacity-85"
       >
-        <InfinitySpin visible width="200" color="#FF914D" ariaLabel="infinity-spin-loading" />
+        <FallingLines
+          visible
+          color="#ff914d"
+          width="100"
+          ariaLabel="falling-circles-loading"
+        />
       </motion.section>
     )
   }
@@ -167,7 +178,7 @@ const Form = () => {
             type="submit" className="border-solid border transition-all text-white hover:text-primary rounded-lg w-full md:w-3/4 lg:w-1/2 p-3 mt-5 mx-auto hover:bg-orange-100 active:scale-90 font-bold"
             disabled={state.submitting}  
           >
-            {loading ? <InfinitySpin visible width="30" color="#61b5ff" ariaLabel="infinity-spin-loading" /> : 'Reserve my spot'}
+            Reserve my spot
           </button>
         </form>
       </motion.div>
