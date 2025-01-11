@@ -45,10 +45,16 @@ h2 {
   font-weight: 700;
 }
 
+.add-bg {
+  background-image: url('./assets/summer.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 .bg {
   background-image: url('./assets/bg_mob.png');
   background-size: cover;
-  background-repeat: no-repeatt;
+  background-repeat: no-repeat;
 }
 
 body {

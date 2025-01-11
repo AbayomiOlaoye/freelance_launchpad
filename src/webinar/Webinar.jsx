@@ -7,6 +7,28 @@ import deskHero from '../assets/hero_desk.svg';
 import Form from '../components/Form';
 import { toggle } from '../redux/popSlice';
 import Success from '../components/Success';
+import oluwatoyin from '../assets/oluwatoyin.png';
+import stephen from '../assets/stephen.png';
+import john from '../assets/john.png';
+import { store } from '../redux/store';
+
+const speakers = [
+  {
+    id: 3,
+    image: john,
+    intro: 'John Akande, Director of Zozzah, is a renowned SEO expert and growth strategist recognized for delivering exceptional results. With nearly a decade of experience, he empowers businesses across sectors (B2B, B2C, B2G) to achieve measurable growth through data-driven strategies, automation, and innovative web solutions (WordPress) tailored for real estate companies.',
+  },
+  {
+    id: 2,
+    image: stephen,
+    intro: 'Stephen Okon is a highly skilled freelancer specializing in Scientific Research Writing and Software Development (Python, JavaScript). With over 250 international clients and experience consulting for over 1000 students, he excels in client communication, negotiation, and delivering exceptional results in the gig economy.'
+  },
+  {
+    id: 1,
+    image: oluwatoyin,
+    intro: 'Oluwatoyin Abayomi Olaoye is the Founder & CEO of MindByte Technologies, delivering impactful software solutions for clients across sectors like fintech, agriculture, and e-commerce. With over 3 years of freelancing experience, he leads his team in developing innovative applications that automate processes and drive business growth. Oluwatoyin also mentors young developers, fostering the next generation of tech talent.',
+  },
+];
 
 const options = {
   loop: true,
@@ -73,7 +95,7 @@ const Webinar = () => {
   });
   const dispatch = useDispatch();
   const success = useSelector((state) => state.pop.success);
-  const [open, setOpen] = useState(false);
+  const isOpen = store.getState().pop.isOpen;
 
   const onThumbClick = useCallback(
     (index) => {
@@ -114,17 +136,16 @@ const Webinar = () => {
             transition={{ duration: 0.3 }}
             className="text-[7vw] md:text-[40px] lg:text-[54px] lg:mx-0 lg:leading-[60px] font-extrabold md:max-w-[80%] mx-auto text-center lg:text-left"
           >
-            From Job Seeker to Digital Nomad: Your 2025 Leap into Freelance Freedom
+            From Job Seeker to Freelancer: Making the Leap in <span className="text-orange-100">2025</span>
           </motion.h1>
           <p className="text-lg lg:text-2xl lg:leading-10 md:max-w-[70%] text-center mx-auto lg:mx-0 lg:text-left">
-            Join our exclusive webinar to discover the secrets to conquer your fears, master your skills,
-            find clients, present yourself, and build a thriving freelance career.
+            Join our exclusive free webinar to discover the secrets to starting and building a thriving freelance career or side hustle.
           </p>
           <motion.button
             initial={{ opacity: 0, y: "50%" }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5, stiffness: 150 }}
-            onClick={() => {dispatch(toggle()); setOpen(true)}}
+            onClick={() => {dispatch(toggle())}}
             className="border-0 my-2 lg:text-2xl md:py-4 md:w-[90%] max-w-[200px] lg:mx-0 bg-orange-100 rounded-lg px-4 py-3 text-primary font-bold transition-all active:scale-95 hover:bg-primary mx-auto lg:place-self-start hover:text-orange-100"
           >
             Register Now
@@ -141,12 +162,43 @@ const Webinar = () => {
         <motion.img
           initial={{ opacity: 0, y: "50%"}}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.8 }}
           src={deskHero}
           alt="A thriving freelancer"
           className="lg:w-full my-10 hidden md:flex md:w-[80%]"
         />
       </section>
+      <motion.section className="flex flex-col my-20 ">
+        <h2 className="text-[30px] md:text-[40px] my-8 font-extrabold lg:self-start add-bg">Speakers</h2>
+        <motion.section
+          initial={{ opacity: 0, x: "-100%" }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col items-center lg:items-start justify-center gap-4 md:grid lg:grid-cols-3"
+        >
+          {speakers.map((speaker) => (
+            <motion.article
+              key={speaker.id}
+              initial={{ opacity: 0, y: "50%" }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="flex flex-col min-h-full items-center gap-4 bg-white p-5 pb-10 rounded-lg max-w-[80%] lg:max-w-[100%] mx-auto"
+            >
+              <motion.img
+                initial={{ opacity: 0, width: 0}}
+                whileInView={{ opacity: 1, width: "80%" }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                src={speaker.image}
+                alt="Speaker"
+                className=""
+              />
+              <p className="text-center opacity-75 mt-[-30px] lg:text-justify text-[16px]">{speaker.intro}</p>
+            </motion.article>
+          ))}
+        </motion.section>
+      </motion.section>
       <motion.section style={{ overflow: 'hidden' }} className="flex w-full flex-col lg:mt-[60px] items-center lg:items-start justify-center gap-5 md:grid lg:grid-cols-2">
         <motion.article
           initial={{ opacity: 0, x: "-100%" }}
@@ -155,7 +207,7 @@ const Webinar = () => {
           viewport={{ once: true }}
           className="flex flex-col items-center lg:items-start gap-4 md:grid"
         >
-          <h2 className="text-2xl lg:text-3xl font-extrabol self-start">What you&apos;ll learn:</h2>
+          <h2 className="text-2xl lg:text-3xl font-extrabold self-start">What you&apos;ll learn:</h2>
           <ul className="flex flex-col items-start gap-2">
             {benefits.map((benefit, index) => (
               <li key={index} className="flex items-center gap-2">
@@ -228,7 +280,7 @@ const Webinar = () => {
           {` ${currentYear} All Rights Reserved, Freelance LaunchPad`}
         </span>
       </small>
-      {open && (<Form />)}
+      {isOpen && (<Form />)}
       {success && (<Success />)}
     </motion.div>
   );
