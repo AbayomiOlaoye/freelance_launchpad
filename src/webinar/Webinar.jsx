@@ -136,7 +136,7 @@ const Webinar = () => {
             transition={{ duration: 0.3 }}
             className="text-[7vw] md:text-[40px] lg:text-[54px] lg:mx-0 lg:leading-[60px] font-extrabold md:max-w-[80%] mx-auto text-center lg:text-left"
           >
-            From Job Seeker to Freelancer: Making the Leap in <span className="text-orange-100">2025</span>
+            From Job Seeker to Freelancer: Making the Leap in <span className="text-orange-200">2025</span>
           </motion.h1>
           <p className="text-lg lg:text-2xl lg:leading-10 md:max-w-[70%] text-center mx-auto lg:mx-0 lg:text-left">
             Join our exclusive free webinar to discover the secrets to starting and building a thriving freelance career or side hustle.
@@ -146,7 +146,7 @@ const Webinar = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5, stiffness: 150 }}
             onClick={() => {dispatch(toggle())}}
-            className="border-0 my-2 lg:text-2xl md:py-4 md:w-[90%] max-w-[200px] lg:mx-0 bg-orange-100 rounded-lg px-4 py-3 text-primary font-bold transition-all active:scale-95 hover:bg-primary mx-auto lg:place-self-start hover:text-orange-100"
+            className="border-0 my-2 lg:text-2xl md:py-4 md:w-[90%] max-w-[200px] lg:mx-0 bg-primary rounded-lg px-4 py-3 text-orange-200 font-bold transition-all active:scale-95 hover:bg-orange-100 mx-auto lg:place-self-start hover:text-primary"
           >
             Register Now
           </motion.button>
