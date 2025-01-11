@@ -183,7 +183,7 @@ const Webinar = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="flex flex-col min-h-full items-center gap-4 bg-white p-5 pb-10 rounded-lg max-w-[80%] lg:max-w-[100%] mx-auto"
+              className="flex flex-col min-h-full items-center gap-1 bg-white p-5 pb-10 rounded-lg max-w-[100%] md:max-w-[70%] lg:max-w-[100%] mx-auto"
             >
               <motion.img
                 initial={{ opacity: 0, width: 0}}
@@ -194,7 +194,7 @@ const Webinar = () => {
                 alt="Speaker"
                 className=""
               />
-              <p className="text-center opacity-75 mt-[-30px] lg:text-justify text-[16px]">{speaker.intro}</p>
+              <p className="text-center opacity-75 mt-[-20px] lg:text-justify text-[16px]">{speaker.intro}</p>
             </motion.article>
           ))}
         </motion.section>
