@@ -16,12 +16,12 @@ const speakers = [
   {
     id: 3,
     image: john,
-    intro: 'John Akande, Director of Zozzah, is a renowned SEO expert and growth strategist recognized for delivering exceptional results. With nearly a decade of experience, he empowers businesses across sectors (B2B, B2C, B2G) to achieve measurable growth through data-driven strategies, automation, and innovative web solutions (WordPress) tailored for real estate companies.',
+    intro: 'ohn Akande, Director of Zozzah, is a renowned SEO expert and growth strategist recognized for delivering exceptional results. With nearly a decade of experience, he empowers businesses across sectors (B2B, B2C, B2G) to achieve measurable growth through data-driven strategies, automation and innovative web solutions.',
   },
   {
     id: 2,
     image: stephen,
-    intro: 'Stephen Okon is a highly skilled freelancer specializing in Scientific Research Writing and Software Development (Python, JavaScript). With over 250 international clients and experience consulting for over 1000 students, he excels in client communication, negotiation, and delivering exceptional results in the gig economy.'
+    intro: 'Stephen Okon is a highly skilled freelancer specializing in Scientific Research Writing and Software Development (Python, JavaScript). With over 3 years meeting specialised needs of multiple international clients across diverse fields and experience consulting with research students within and beyond Africa, he excels in client communication, negotiation, and delivering exceptional results in the gig economy.'
   },
   {
     id: 1,
@@ -168,7 +168,7 @@ const Webinar = () => {
           className="lg:w-full my-10 hidden md:flex md:w-[80%]"
         />
       </section>
-      <motion.section className="flex flex-col my-20 ">
+      <motion.section className="flex flex-col mb-16">
         <h2 className="text-[30px] md:text-[40px] my-8 font-extrabold lg:self-start add-bg">Speakers</h2>
         <motion.section
           initial={{ opacity: 0, x: "-100%" }}
