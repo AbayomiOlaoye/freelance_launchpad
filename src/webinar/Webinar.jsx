@@ -21,7 +21,7 @@ const speakers = [
   {
     id: 2,
     image: stephen,
-    intro: 'Stephen Okon is a highly skilled freelancer specializing in Scientific Research Writing and Software Development (Python, JavaScript). With over 3 years meeting specialised needs of multiple international clients across diverse fields and experience consulting with research students within and beyond Africa, he excels in client communication, negotiation, and delivering exceptional results in the gig economy.'
+    intro: 'Stephen Okon is a highly skilled freelancer specializing in Scientific Research Writing and Software Development (Python, JavaScript). With over 3 years of experience meeting specialised needs of multiple international clients across diverse fields and consulting with research students within and beyond Africa, he excels in client communication, negotiation, and delivering exceptional results in the gig economy.'
   },
   {
     id: 1,
