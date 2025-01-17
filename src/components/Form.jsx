@@ -4,14 +4,14 @@ import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { FallingLines } from 'react-loader-spinner';
 import { toast } from 'react-toastify';
-import { useForm } from '@formspree/react';
+// import { useForm } from '@formspree/react';
 import * as Yup from 'yup';
 import { MdCancel } from 'react-icons/md';	
 import { motion, AnimatePresence } from 'framer-motion';
 import { toggle, formStatus } from '../redux/popSlice';
 import { store } from '../redux/store';
 
-const passkey = import.meta.env.VITE_FORMSPREE_PASSKEY;
+// const passkey = import.meta.env.VITE_FORMSPREE_PASSKEY;
 const backend = import.meta.env.VITE_BACKEND_URL;
 
 const errorVariants = {
@@ -29,7 +29,7 @@ const Form = () => {
   const dispatch = useDispatch();
   const isOpen =  store.getState().pop.isOpen;
   const [loading, setLoading] = useState(false);
-  const [state, submit] = useForm(passkey);
+  // const [state, submit] = useForm(passkey);
 
   const formik = useFormik({
     initialValues: {
@@ -52,8 +52,6 @@ const Form = () => {
           setLoading(false);
           return;
         }
-    
-        await submit(values);
 
         dispatch(formStatus());
         formik.resetForm();
@@ -176,7 +174,7 @@ const Form = () => {
 
           <button
             type="submit" className="border-solid border transition-all text-white hover:text-primary rounded-lg w-full md:w-3/4 lg:w-1/2 p-3 mt-5 mx-auto hover:bg-orange-100 active:scale-90 font-bold"
-            disabled={state.submitting}  
+            disabled={loading}  
           >
             Reserve my spot
           </button>
