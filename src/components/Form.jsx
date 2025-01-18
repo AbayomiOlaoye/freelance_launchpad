@@ -114,8 +114,8 @@ const Form = () => {
       <motion.div className="container mx-auto w-[90%] md:w-1/2 grid min-h-[45vh] mt-4 gap-10 bg-orange-100 p-2" onClick={(e) => e.stopPropagation()}>
         <MdCancel className="absolute left-5 md:left-10 top-20 lg:top-14 text-3xl cursor-pointer text-white" onClick={() => dispatch(toggle())} />
         <form className="flex flex-col justify-center gap-2 bg-primary rounded-3xl p-6" onSubmit={formik.handleSubmit}>
-          <h1 className="font-[700] text-white text-[24px] text-center">Secure Your Spot Now!!!</h1>
-          <h4 className="font-[500] text-center text-orange-100">Limited Seats Available</h4>
+          <h1 className="font-[700] text-white text-[24px] text-center">Registration Closed!!!</h1>
+          <h4 className="font-[500] text-center text-orange-100">Watchout For Future Opportunity</h4>
           <article className="flex flex-col gap-7 mt-3">
             <div className="inputDiv w-full md:w-3/4 lg:w-1/2 mx-auto relative">
               <input
@@ -124,6 +124,7 @@ const Form = () => {
                 placeholder="Your First Name"
                 className="w-full appearance-none rounded-md py-3 pl-3 pr-7 text-base text-black placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-orange-100 sm:text-sm/6"
                 value={formik.values.name}
+                disabled
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               />
@@ -151,6 +152,7 @@ const Form = () => {
                 placeholder="Your Valid Email address"
                 className="input w-full appearance-none rounded-md py-3 pl-3 pr-7 text-base text-black placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-orange-100 sm:text-sm/6"
                 value={formik.values.email}
+                disabled
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               />
@@ -174,7 +176,7 @@ const Form = () => {
 
           <button
             type="submit" className="border-solid border transition-all text-white hover:text-primary rounded-lg w-full md:w-3/4 lg:w-1/2 p-3 mt-5 mx-auto hover:bg-orange-100 active:scale-90 font-bold"
-            disabled={loading}  
+            disabled 
           >
             Reserve my spot
           </button>
